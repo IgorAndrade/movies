@@ -34,6 +34,7 @@ module.exports = {
   devServer: {
     port: 3000,
     open: true,
+    historyApiFallback: true,
     proxy: {
       '/3': { target: 'https://api.themoviedb.org', secure: false}
     }

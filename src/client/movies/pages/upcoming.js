@@ -1,24 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from "react-redux";
+
 import Layout from '../../layout';
-import { MovieList, apiUpcoming } from '../';
-const Upcoming = () => {
-    const [result, setResult] = useState({ page: 0, results: [] });
-    console.log(result)
-    const changePage = (page = 1) => {
-        console.log(page);
-        apiUpcoming(page).then(setResult);
-    }
-    useEffect(changePage, []);
+import { MovieList, apiUpcoming, selectMovie } from '../';
+const Upcoming = (props) => {
+    // const [result, setResult] = useState({ page: 0, results: [] });
+    useEffect(props.changePage, []);
 
     return (
         <Layout title="upcoming">
             <div className="row ipad-width">
-                <MovieList {...result} changePage={changePage} ></MovieList>
+                <MovieList {...props.result} select={props.select} changePage={props.changePage} ></MovieList>
             </div>
         </Layout>
     )
 };
 
-export default Upcoming;
+const mapStateToProps = state => {
+    return { result: state.movies.result }
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        changePage: (page = 1) => dispatch(apiUpcoming(page)),
+        select: (movie) => {
+            dispatch(selectMovie(movie));
+            ownProps.history.push("/movie")
+        },
+        dispatch
+    }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Upcoming);
 
 

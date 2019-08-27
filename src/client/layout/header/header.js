@@ -11,10 +11,6 @@ const Header = () => {
                     <Menu></Menu>
                 </nav>
                 <div className="top-search">
-                    <select>
-                        <option value="saab">Movie</option>
-                        <option value="united">TV show</option>
-                    </select>
                     <input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for"></input>
                 </div>
             </div>

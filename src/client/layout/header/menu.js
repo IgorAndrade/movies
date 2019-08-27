@@ -1,10 +1,10 @@
 import React from 'react';
 const Menu = () => {
-    return (
+    return ( 
         <div className="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav flex-child-menu menu-left">
                 <li className="hidden">
-                    <a href="https://haintheme.com/demo/html/bustter/index.html#page-top"></a>
+                    <a href="#" ></a>
                 </li>
                 <li className="dropdown first">
                     <a className="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
