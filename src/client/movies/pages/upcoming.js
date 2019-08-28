@@ -23,8 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         changePage: (page = 1) => dispatch(apiUpcoming(page)),
         select: (movie) => {
-            dispatch(selectMovie(movie));
-            ownProps.history.push("/movie")
+            ownProps.history.push(`/movie/${movie.id}`)
         },
         dispatch
     }

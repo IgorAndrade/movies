@@ -1,15 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 const Menu = () => {
     return ( 
         <div className="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav flex-child-menu menu-left">
-                <li className="hidden">
-                    <a href="#" ></a>
-                </li>
                 <li className="dropdown first">
-                    <a className="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
+                    <Link className="btn btn-default dropdown-toggle lv1" to="/">
                         Home <i className="fa fa-angle-down" aria-hidden="true"></i>
-                    </a>
+                    </Link>
                     <ul className="dropdown-menu level1">
                     </ul>
                 </li>

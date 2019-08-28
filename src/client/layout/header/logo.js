@@ -7,7 +7,7 @@ const Logo = () => {
                 <div id="nav-icon1">
                 </div>
             </div>
-            <a href="https://haintheme.com/demo/html/bustter/index.html"><img className="logo" src="./Open Pediatrics_files/logo1.png" alt="" width="119" height="58"></img></a>
+            <a href="#"><img className="logo"  alt="" width="119" height="58"></img></a>
         </div>
     );
 }
