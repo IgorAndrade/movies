@@ -8,7 +8,7 @@ import { createBrowserHistory } from 'history';
 
 import l from './layout'
 import './app.css';
-import Upcomping, { MoviePg, reduce as reduceMovies } from './movies'
+import Upcomping, { MoviePg, reduce as reduceMovies, SearchMovie } from './movies'
 
 const reducers = combineReducers({ movies: reduceMovies });
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
@@ -21,6 +21,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" component={Upcomping}></Route>
             <Route path="/movie/:id" component={MoviePg}></Route>
+            <Route path="/search" component={SearchMovie}></Route>
             <Route path="/*" component={() => 'NOT FOUND'} />
           </Switch>
         </Router>

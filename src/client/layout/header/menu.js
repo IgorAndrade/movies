@@ -9,6 +9,11 @@ const Menu = () => {
                         Home <i className="fa fa-angle-down" aria-hidden="true"></i>
                     </Link>
                     <ul className="dropdown-menu level1">
+                    <li>
+                    <Link className="btn btn-default dropdown-toggle lv1" to="/">
+                        Upcoming <i className="fa fa-angle-down" aria-hidden="true"></i>
+                    </Link>
+                    </li>
                     </ul>
                 </li>
                 <li className="dropdown first">

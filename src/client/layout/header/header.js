@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './logo';
 import Menu from './menu';
-
+import SearchBar from '../../movies/components/searchbar';
 const Header = () => {
     return (
         <header className="ht-header">
@@ -10,9 +10,7 @@ const Header = () => {
                     <Logo></Logo>
                     <Menu></Menu>
                 </nav>
-                <div className="top-search">
-                    <input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for"></input>
-                </div>
+                <SearchBar></SearchBar>
             </div>
         </header>
     );

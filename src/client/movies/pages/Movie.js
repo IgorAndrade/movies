@@ -12,12 +12,14 @@ const Movie = (props) => {
         props.history.replace("/")
         return ""
     }
+
     useEffect(() => {
         props.getMovie(id);
         return props.clean
     }, [])
+
     if (!movie) {
-        return Loading
+        return (<Layout><h1>Loading...</h1></Layout>);
     }
     return (
         <Layout>
@@ -58,8 +60,6 @@ const Movie = (props) => {
         </Layout>
     )
 }
-
-const Loading = <Layout><h1>Loading...</h1></Layout>
 
 const Rate = ({ vote_average, vote_count }) => {
 
