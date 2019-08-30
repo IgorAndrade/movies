@@ -1,5 +1,6 @@
 const express = require('express');
 const proxy = require('express-http-proxy');
+const path = require('path');
 const PORT = process.env.PORT || 8080;
 const API_URL = process.env.API_URL || 'https://api.themoviedb.org';
 const API_KEY = process.env.API_KEY;
@@ -25,6 +26,6 @@ let resolver =  {
 app.use(express.static('dist'));
 app.get('/api/*', proxy(API_URL,resolver));
 app.get('*', function (request, response) {
-    response.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+    response.sendFile(path.resolve('dist', 'index.html'));
 });
 app.listen(PORT || 8080, () => console.log(`Listening on port ${PORT}!`));
