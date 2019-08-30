@@ -43,7 +43,7 @@ const Movie = (props) => {
                                 <div className="tab-content">
                                     <div id="overview" className="tab active" >
                                         <div className="row">
-                                            <div className="col-md-8 col-sm-12 col-xs-12">
+                                            <div className="col-md-8 col-sm-12 col-xs-12" style={{color:'#abb7c4'}}>
                                                 {movie.overview}
                                             </div>
                                             <div className="col-md-4 col-xs-12 col-sm-12">

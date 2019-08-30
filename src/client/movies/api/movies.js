@@ -7,7 +7,7 @@ export const SEARCH_RESULT = createAction('SEARCH_RESULT');
 export function apiUpcoming(page) {
     return (dispatch) => {
         console.log("upcoming");
-        fetch(`/3/movie/upcoming?page=${page}&api_key=1f54bd990f1cdfb230adb312546d765d`)
+        fetch(`/api/movie/upcoming?page=${page}`)
             .then(res => res.json())
             .then(r => dispatch(MOVIES(r)))
     }
@@ -15,7 +15,7 @@ export function apiUpcoming(page) {
 
 export function apiGetMovie(id) {
     return (dispatch) => {
-        fetch(`/3/movie/${id}?api_key=1f54bd990f1cdfb230adb312546d765d`)
+        fetch(`/api/movie/${id}`)
             .then(res => res.json())
             .then(r => dispatch(SELECT(r)))
     }
@@ -27,7 +27,7 @@ export function apiSearchMovie(text, page = 1) {
             apiCleanSearch()(dispatch);
             return;
         }
-        fetch(`/3/search/movie?query=${text}&page=${page}&api_key=1f54bd990f1cdfb230adb312546d765d`)
+        fetch(`/api/search/movie?query=${text}&page=${page}`)
             .then(res => res.json())
             .then(r => dispatch(SEARCH_RESULT(r)))
     }

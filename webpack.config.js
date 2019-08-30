@@ -38,7 +38,7 @@ module.exports = {
     publicPath:'/',
     historyApiFallback: true,
     proxy: {
-      '/3': { target: 'https://api.themoviedb.org', secure: false}
+      '/api': { target: 'localhost:8080', secure: false}
     }
   },
   plugins: [
