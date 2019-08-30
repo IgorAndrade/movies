@@ -2,7 +2,7 @@
 webapp for cinephiles and movie hobbyists.
 
 
-##architecture:
+## architecture:
     frontend:
         - react with redux
     backend:
@@ -10,7 +10,7 @@ webapp for cinephiles and movie hobbyists.
         - express
         
         
-##Build and run
+## Build and run
     - Should set the TMDb API key at env "API_KEY"
         # export API_KEY=<key>
     - TO build
