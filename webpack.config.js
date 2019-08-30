@@ -8,7 +8,8 @@ module.exports = {
   entry: ['babel-polyfill', './src/client/index.js'],
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath:'/'
   },
   module: {
     rules: [{
@@ -23,7 +24,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(png|woff|woff2|eot|ttf|svg|jpg)$/,
         loader: 'url-loader?limit=100000'
       }
     ]
@@ -34,8 +35,10 @@ module.exports = {
   devServer: {
     port: 3000,
     open: true,
+    publicPath:'/',
+    historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:8080'
+      '/api': { target: 'localhost:8080', secure: false}
     }
   },
   plugins: [

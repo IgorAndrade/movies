@@ -1,23 +1,32 @@
 import React, { Component } from 'react';
+import { Router, Route, Switch } from 'react-router-dom'
+//import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunkMiddleware from "redux-thunk";
+import { Provider } from "react-redux";
+import { createBrowserHistory } from 'history';
+
+import l from './layout'
 import './app.css';
-import ReactImage from './react.png';
+import Upcomping, { MoviePg, reduce as reduceMovies, SearchMovie } from './movies'
 
+const reducers = combineReducers({ movies: reduceMovies });
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+//const history = syncHistoryWithStore(createBrowserHistory(), store)
 export default class App extends Component {
-  state = { username: null };
-
-  componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
-  }
-
   render() {
-    const { username } = this.state;
     return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
-      </div>
+      <Provider store={store}>
+        <Router history={createBrowserHistory()} >
+          <Switch>
+            <Route exact path="/" component={Upcomping}></Route>
+            <Route path="/movie/:id" component={MoviePg}></Route>
+            <Route path="/search" component={SearchMovie}></Route>
+            <Route path="/*" component={() => 'NOT FOUND'} />
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }
+//<img src={ReactImage} alt="react" />
